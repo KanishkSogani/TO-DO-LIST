@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
     <div class="box">
-        <h1>TODO LIST</h1>
+      <h1>To-do List</h1>
     </div>
     <div class="box">
-        
-        <% for(var i=0; i< ejes.length; i++){ %>
-            <div class="item">
-                <input type="checkbox">
-                <p><%= ejes[i] %></p>
-            </div>
-        <% } %>
-    
-    <form action="/" method="post">
-        <input type="text" name="ele1" placeholder="Enter your Task">
+      <% dayej.forEach((items)=>{ %>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input
+            type="checkbox"
+            name="checkbox1"
+            value="<%= items._id %>"
+            onchange="this.form.submit()"
+          />
+          <p><%= items.name %></p>
+        </div>
+      </form>
+      <% }); %>
+      <form action="/" method="post">
+        <input type="text" name="ele1" placeholder="Enter the task" />
         <button type="submit">+</button>
-    </form>
+      </form>
     </div>
-</body>
+  </body>
 </html>
